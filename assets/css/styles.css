@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/* CUSTOM PROPERTIES */
+:root{
+  --desaturated-red-color: hsl(0, 36%, 70%);
+  --soft-red-color: hsl(0, 93%, 68%);
+  --dark-grayish-red-color:  hsl(0, 6%, 24%);  
+  --light-red-color:  hsl(0, 80%, 86%);
+  --medium-red-color:  hsl(0, 74%, 74%);
+  --white-color: hsl(0, 0%, 100%);
+  --white-color-alt: hsl(0, 100%, 98%);
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-600: 600;
+  --ff-josefin-sans: 'Josefin Sans', sans-serif;
+
+  --box-shadow-1: 0 0 1.8rem .3rem  hsla(0, 36%, 70%, .58);
+  --box-shadow-2: 0 0 1.3rem .2rem hsla(347, 89%, 82%, 0.749);
+}
+
+/* RESET */
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: var(--ff-josefin-sans);
+}
+
+button, input{
+  font: inherit;
+}
+
+button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input{
+  width: 100%;
+}
+
+/* HEADER */
+.header{
+ height: auto;
+ padding: 3rem;
+}
+
+.logo {
+  width: 15rem;
+}
+
+/* REUSABLE CLASSES */
+.items-center{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+/* MAIN CONTAINER  */
+.container{
+  min-height: 100vh;
+  background-image: linear-gradient(135deg, var(--white-color), var(--white-color-alt));
+}
+
+.container .left-column{
+  width: 100%;
+  height: auto;
+  padding: 5rem 3rem 0 3rem;
+}
+
+.container .left-column .title{
+  font-size: 5rem;
+  font-weight: var(--fw-300);
+  color: var(--desaturated-red-color);
+  text-transform: uppercase;
+  line-height: 5rem;
+  letter-spacing: .7rem;
+}
+
+.container .left-column .accent-text{
+  font-weight: var(--fw-600);
+  color: var(--dark-grayish-red-color);
+}
+
+.container .left-column .text{
+  color: var(--desaturated-red-color);
+  max-width: 28ch;
+  margin-inline: auto;
+  line-height: 2.5rem;
+  margin-block-start: 2rem;
+  margin-block-end: 4rem;
+}
+
+.container .right-column{
+  width: 100%;
+  height: 30rem;
+  background-image: url('../images/hero-mobile.jpg');
+  background-size: cover;
+}
+
+/* EMAIL FORM */
+.container .email-form{
+  position: relative;
+  display: block;
+  height: 5.4rem;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 40rem;
+}
+
+.container .email-form .email-field{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 5rem;
+  left: 0;
+  top: 0;
+  border: .1rem solid var(--desaturated-red-color);
+  padding-inline-start: 3rem;
+}
+
+.container .email-form .email-field::placeholder{
+  color: var(--desaturated-red-color);
+}
+
+.container .email-form .form-btn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 7.5rem;
+  border-radius: 5rem;
+  background-image: linear-gradient(135deg, var(--light-red-color), var(--medium-red-color));
+  box-shadow: var(--box-shadow-1);
+}
+
+.container .email-form .form-btn:hover{
+  background-image: linear-gradient( 145deg,  hsl(0, 80%, 86%), hsl(2, 66%, 89%));
+  box-shadow: var(--box-shadow-2);
+}
+
+.container .email-form .error-icon{
+  position: absolute;
+  top: 24%;
+  right: 8.5rem;
+  display: none;
+}
+
+.container .email-form .error-text{
+  color: var(--soft-red-color);
+  position: absolute;
+  left: 3rem;
+  top: 6rem;
+  display: none;
+}
+
+.container .email-form.error .error-icon{
+  display: block;
+}
+
+.container .email-form.error .error-text{
+  display: block;
+}
+
+.container .email-form.error .email-field{
+  border: .2rem solid var(--soft-red-color);
+}
+
+/* MEDIA QUERY */
+
+@media (min-width: 48em){
+  .header{
+    position: absolute;
+    padding-inline-start: 10%;
+    padding-block-start: 5rem;
+  }
+
+  .logo{
+    width: 18rem;
+  }
+
+  .items-center{
+    flex-direction: row;
+    padding-block: 0;
+  }
+
+  .container .left-column{
+    width: 100%;
+    height: 100vh;
+    padding-block-start: 28vh;
+    text-align: left;
+    padding-inline-start: 10%;
+    background-image: url('../images/bg-pattern-desktop.svg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container .left-column .title{
+    font-size: 6rem;
+    line-height: 6.6rem;
+  }
+  .container .left-column .text,
+  .container .email-form{
+    margin-inline-start: 0;
+  }
+
+  .container .left-column .text{
+    max-width: 64ch;
+  }
+  
+  .container .right-column{
+    width: 80%;
+    height: 100vh;
+    background-image: url('../images/hero-desktop.jpg');
+  }
+
+  .container .email-form .form-btn{
+    width: 8.5rem;
+  }
+}
+
+@media (min-width: 75em){
+  .container .left-column .accent-text{
+    font-size: 6.6rem;
+  }
+  .container .left-column .text{
+    max-width: 45ch;
+  }
+}
